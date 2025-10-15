@@ -1,0 +1,160 @@
+/* === BASE === */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #e0f2ff 40%, #b3dcff 100%);
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: #8198ae;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === LOADER === */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffffff, #d9eeff);
+  animation: fadeOut 1s ease 2s forwards;
+}
+
+.welcome {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  letter-spacing: 6px;
+  color: #b2d6ff;
+  animation: fadeInZoom 2s ease;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0,0,0,0.05);
+  border-top-color: #4c637e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-top: 20px;
+}
+
+.spinner.small {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+/* === MAIN CONTAINER === */
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 50%, #eaf6ff, #c9e6ff);
+  overflow: hidden;
+}
+
+.glass-box {
+  backdrop-filter: blur(14px);
+  background: rgba(94, 136, 204, 0.67);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 20px;
+  padding: 60px 80px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,119,255,0.2);
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+.options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* === BUTTONS === */
+.btn {
+  background: linear-gradient(90deg, #0077ff, #3399ff);
+  border: none;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #0077ff;
+  color: #0077ff;
+}
+
+/* === FLOATING LIGHTS === */
+.container::before, .container::after {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #a8d8ff, transparent 70%);
+  animation: floatBlob 8s infinite ease-in-out;
+  opacity: 0.4;
+}
+
+.container::after {
+  bottom: 10%;
+  right: 10%;
+  background: radial-gradient(circle at 70% 70%, #d0ecff, transparent 70%);
+  animation-delay: 3s;
+}
+
+/* === ANIMATIONS === */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInZoom {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatBlob {
+  0%,100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.1); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width:600px){
+  .welcome { font-size: 42px; }
+  .title { font-size: 30px; }
+  .glass-box { padding: 40px 20px; }
+  .options { flex-direction: column; }
+}

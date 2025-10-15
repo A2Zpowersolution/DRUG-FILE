@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Retailer Licence Document Required</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="retailer.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="back" href="index.html">← Back to Home</a>
+    <h1>DRUG LICENCE - RETAILER</h1>
+  </header>
+
+  <main class="page">
+    <section class="info glass">
+      <h2>Retailer Licence — Information</h2>
+      <p>
+        This portal will help you compile required documents for a Retailer Drug Licence.
+        Fill mandatory fields, upload documents. Files are uploaded automatically and saved on server so you
+        won't need to re-upload repeatedly in this device.
+      </p>
+    </section>
+
+    <form id="retailerForm" class="form glass" autocomplete="off">
+
+      <!-- ===================== FIRM DETAILS ===================== -->
+      <details open class="card">
+        <summary>Firm Details</summary>
+        <div class="field-grid">
+          <label>Firm Name*<input type="text" name="firm_name" required></label>
+          <label>Firm Address*<textarea name="firm_address" rows="2" required></textarea></label>
+          <label>Length (in ft)*<input type="number" name="firm_length" id="firmLength" step="0.01" required></label>
+          <label>Breadth (in ft)*<input type="number" name="firm_breadth" id="firmBreadth" step="0.01" required></label>
+          <label>Area (sq. ft)*<input type="text" name="firm_area" id="firmArea" readonly></label>
+        </div>
+        <small class="note">Area auto-calculated as Length × Breadth.</small>
+      </details>
+
+      <!-- ===================== PROPRIETOR DETAILS ===================== -->
+      <details class="card">
+        <summary>Proprietor Details</summary>
+        <div class="field-grid">
+          <label>Full Name*<input type="text" name="prop_name" required></label>
+          <label>Phone*<input type="tel" name="prop_phone" required></label>
+          <label>Email*<input type="email" name="prop_email" required></label>
+          <label>Address*<textarea name="prop_address" rows="2" required></textarea></label>
+        </div>
+
+        <div class="uploads">
+          <h4>Documents (Proprietor)</h4>
+          <label class="filerow">Aadhaar (front/back or single PDF/JPG)
+            <input type="file" name="prop_aadhaar" accept=".pdf,image/*">
+            <small class="status" data-for="prop_aadhaar">Not uploaded</small>
+          </label>
+
+          <label class="filerow">PAN Card
+            <input type="file" name="prop_pan" accept=".pdf,image/*">
+            <small class="status" data-for="prop_pan">Not uploaded</small>
+          </label>
+
+          <label class="filerow">Affidavit
+            <input type="file" name="prop_affidavit" accept=".pdf,image/*">
+            <small class="status" data-for="prop_affidavit">Not uploaded</small>
+          </label>
+
+          <div class="aff-options">
+            <label><input type="checkbox" name="prop_aff_na"> Affidavit Not Available</label>
+            <label><input type="checkbox" name="prop_aff_create"> Create an Affidavit</label>
+          </div>
+        </div>
+      </details>
+
+      <!-- Pharmacist -->
+      <details class="card">
+        <summary>Pharmacist Details</summary>
+        <div class="field-grid">
+          <label>Name*<input type="text" name="phar_name" required></label>
+          <label>Phone*<input type="tel" name="phar_phone" required></label>
+          <label>Email*<input type="email" name="phar_email" required></label>
+          <label>Qualification*
+            <select name="phar_qual" required>
+              <option value="">Select</option>
+              <option>D.Pharm</option>
+              <option>B.Pharm</option>
+              <option>M.Pharm</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="uploads">
+          <h4>Documents (Pharmacist)</h4>
+          <label class="filerow">Aadhaar
+            <input type="file" name="phar_aadhaar" accept=".pdf,image/*">
+            <small class="status" data-for="phar_aadhaar">Not uploaded</small>
+          </label>
+
+          <label class="filerow">PAN Card
+            <input type="file" name="phar_pan" accept=".pdf,image/*">
+            <small class="status" data-for="phar_pan">Not uploaded</small>
+          </label>
+
+          <label class="filerow">Affidavit
+            <input type="file" name="phar_affidavit" accept=".pdf,image/*">
+            <small class="status" data-for="phar_affidavit">Not uploaded</small>
+          </label>
+
+          <div class="aff-options">
+            <label><input type="checkbox" name="phar_aff_na"> Affidavit Not Available</label>
+            <label><input type="checkbox" name="phar_aff_create"> Create an Affidavit</label>
+          </div>
+        </div>
+      </details>
+
+      <!-- Property Documents -->
+      <details class="card">
+        <summary>Property Documents</summary>
+        <div class="uploads">
+          <label class="filerow">Rent Agreement
+            <input type="file" name="rent_agreement" accept=".pdf,image/*">
+            <small class="status" data-for="rent_agreement">Not uploaded</small>
+          </label>
+          <div class="na-create">
+            <label><input type="checkbox" name="rent_na"> N/A</label>
+            <label><input type="checkbox" name="rent_create"> Create</label>
+          </div>
+
+          <label class="filerow">Electricity Bill
+            <input type="file" name="electric_bill" accept=".pdf,image/*">
+            <small class="status" data-for="electric_bill">Not uploaded</small>
+          </label>
+
+          <label class="filerow">Cold (Refrigerator) Bill
+            <input type="file" name="cold_bill" accept=".pdf,image/*">
+            <small class="status" data-for="cold_bill">Not uploaded</small>
+          </label>
+
+          <label class="filerow">Camera Bill
+            <input type="file" name="camera_bill" accept=".pdf,image/*">
+            <small class="status" data-for="camera_bill">Not uploaded</small>
+          </label>
+
+          <label class="filerow">Blueprint
+            <input type="file" name="blueprint" accept=".pdf,image/*">
+            <small class="status" data-for="blueprint">Not uploaded</small>
+          </label>
+          <div class="na-create">
+            <label><input type="checkbox" name="blueprint_na"> N/A</label>
+            <label><input type="checkbox" name="blueprint_create"> Create</label>
+          </div>
+        </div>
+      </details>
+
+      <div class="actions">
+        <button type="button" id="saveBtn" class="btn">Save (Local)</button>
+        <button type="button" id="submitBtn" class="btn primary">Submit Application</button>
+      </div>
+      <p class="note">Files are uploaded as you select them. Final submit will send collected data and uploaded files to admin email.</p>
+    </form>
+  </main>
+
+  <!-- overlay while submitting -->
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-card">
+      <div class="spinner"></div>
+      <p id="overlayText">Submitting — please wait</p>
+    </div>
+  </div>
+
+  <script src="retailer.js"></script>
+
+  <!-- 🧮 Auto area calculation script -->
+  <script>
+    const lenInput = document.getElementById('firmLength');
+    const brInput = document.getElementById('firmBreadth');
+    const areaInput = document.getElementById('firmArea');
+
+    function calcArea() {
+      const l = parseFloat(lenInput.value) || 0;
+      const b = parseFloat(brInput.value) || 0;
+      const area = (l * b).toFixed(2);
+      areaInput.value = area > 0 ? area : '';
+    }
+
+    lenInput.addEventListener('input', calcArea);
+    brInput.addEventListener('input', calcArea);
+  </script>
+</body>
+</html>

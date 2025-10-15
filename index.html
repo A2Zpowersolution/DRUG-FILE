@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drug Licence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #eaf6ff 30%, #0077ff 100%);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at 50% 50%, #0077ff, #002b5c);
+      overflow: hidden;
+    }
+
+    .glass-box {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 60px 80px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 102, 255, 0.4);
+      animation: slideIn 1s ease forwards;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: #ffffff;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
+    }
+
+    .options {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #00b3ff, #0077ff);
+      border: none;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(0, 153, 255, 0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0, 153, 255, 0.6);
+    }
+
+    .btn.outline {
+      background: transparent;
+      border: 2px solid #00b3ff;
+      color: #00b3ff;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width:600px) {
+      .title {
+        font-size: 30px;
+      }
+
+      .glass-box {
+        padding: 40px 20px;
+      }
+
+      .options {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="mainContainer">
+    <div class="glass-box">
+      <h2 class="title">DRUG LICENCE</h2>
+      <div class="options">
+        <button class="btn" data-target="retailer.html">Retailer</button>
+        <button class="btn outline" data-target="wholesaler.html">Wholesaler</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.btn[data-target]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        window.location.href = target;
+      });
+    });
+  </script>
+</body>
+</html>
